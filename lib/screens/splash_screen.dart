@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:coffee_app/utils/shared_preferences.dart';
 import 'package:coffee_app/utils/theme_check.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
 
 
+
   @override
   void initState() {
     super.initState();
@@ -26,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
   moveToScreen()
   {
     Timer(Duration(seconds: 3),() async {
-      Get.toNamed('/first');
+      check();
     });
   }
   @override
@@ -38,5 +40,27 @@ class _SplashScreenState extends State<SplashScreen> {
       color: theme ?  AppColors.dark : AppColors.light,
       child: theme ? Image.asset('assets/splash_icon_for_dark.png') : Image.asset('assets/splash_icon_for_light.png'),
     );
+  }
+
+  Future<bool?> check() async{
+    final pref = await AppSharedPreference();
+
+    bool? isFirstTime = await pref.read("isFirstTime");
+
+    if(isFirstTime != null)
+      {
+          if(isFirstTime)
+            {
+              Get.offAndToNamed('/auth');
+            }
+          else
+            {
+              Get.offAndToNamed('/first');
+            }
+      }
+    else
+      {
+        Get.offAndToNamed('/first');
+      }
   }
 }

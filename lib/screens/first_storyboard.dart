@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../utils/app_colors.dart';
+import '../utils/shared_preferences.dart';
 import '../utils/theme_check.dart';
 
 class FirstStoryBoard extends StatelessWidget {
@@ -25,9 +26,7 @@ class FirstStoryBoard extends StatelessWidget {
             SizedBox(
               height: 80,
             ),
-            Align(alignment:Alignment.topRight,child: TextButton(onPressed: (){
-              Get.toNamed('/second');
-            }, child: Text('Skip',style: TextStyle(color:themeMode ?  AppColors.light : AppColors.darkBlack,fontSize: 18),))),
+            Align(alignment:Alignment.topRight,child: TextButton(onPressed: gotoNext, child: Text('Skip',style: TextStyle(color:themeMode ?  AppColors.light : AppColors.darkBlack,fontSize: 18),))),
             SizedBox(
               height: 30,
             ),
@@ -62,9 +61,7 @@ class FirstStoryBoard extends StatelessWidget {
                   color: AppColors.ButtonColor
                 ),
                 child: Center(child: Text('Next',style: TextStyle(color: AppColors.textPrimaryColorForLight),)),),
-              onTap: (){
-                Get.toNamed('/second');
-              },
+              onTap: gotoNext,
             )
           ],
         ),
@@ -72,8 +69,10 @@ class FirstStoryBoard extends StatelessWidget {
     );
   }
 
-  gotoNext()
+  gotoNext() async
   {
-
+    final sharedpref = await AppSharedPreference();
+    sharedpref.save("isFirstTime", true);
+    Get.toNamed('/second');
   }
 }
