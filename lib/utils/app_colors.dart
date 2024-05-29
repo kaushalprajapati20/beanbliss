@@ -20,6 +20,11 @@ class AppColors {
   static const Color strokeColorForDark  = Color(0xFF1E1E1E);
   static const Color strokeColorForLight  = Color(0xFFD7C3B3);
 
+  static const Color pinCodeColorForLight  = Color(0xFFD9D9D9);
+  static const Color pinCodeColorForDark  = Color(0xFF919499);
+
+  static const Color bottomUnselectColor  = Color(0xFFC8C8C8);
+
 
 
 

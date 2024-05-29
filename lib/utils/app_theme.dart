@@ -6,7 +6,7 @@ class AppTheme {
 
   static ThemeData lightTheme = ThemeData(
     useMaterial3: false,
-
+      splashFactory: NoSplash.splashFactory,
       scaffoldBackgroundColor: Colors.white,
       colorScheme: ColorScheme.dark(background: Colors.white,brightness: Brightness.light)
 
@@ -14,6 +14,7 @@ class AppTheme {
 
   static ThemeData darkTheme = ThemeData(
       useMaterial3: false,
+      splashFactory: NoSplash.splashFactory,
       scaffoldBackgroundColor: Colors.black,
       colorScheme: ColorScheme.dark(background: Colors.black,brightness: Brightness.dark)
 

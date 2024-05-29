@@ -30,6 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SingleChildScrollView(
           child: Container(
             color: themeMode ? AppColors.dark : AppColors.light,
+            height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
                 SizedBox(
@@ -176,7 +177,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: AppColors.ButtonColor
                           ),
                           child: Center(child: Text('Login',style: TextStyle(color: AppColors.textPrimaryColorForLight),)),),
-                        onTap: _continueValidation,
+                        onTap: (){
+                          Get.toNamed('/otp');
+                        },
                       ),
 
                       Row(

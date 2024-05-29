@@ -1,5 +1,11 @@
+import 'package:coffee_app/screens/cart_screen.dart';
+import 'package:coffee_app/screens/dashboard_screen.dart';
+import 'package:coffee_app/screens/fav_screen.dart';
 import 'package:coffee_app/screens/first_storyboard.dart';
+import 'package:coffee_app/screens/home_screen.dart';
 import 'package:coffee_app/screens/login_screen.dart';
+import 'package:coffee_app/screens/otp_screen.dart';
+import 'package:coffee_app/screens/profile_screen.dart';
 import 'package:coffee_app/screens/second_storyboard.dart';
 import 'package:coffee_app/screens/signup_screen.dart';
 import 'package:coffee_app/screens/splash_screen.dart';
@@ -30,6 +36,12 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/third', page: () => ThirdStoryBoard(),transition: Transition.rightToLeftWithFade,transitionDuration: Duration(milliseconds: 900)),
         GetPage(name: '/auth', page: () => LoginScreen(),transition: Transition.rightToLeftWithFade,transitionDuration: Duration(milliseconds: 900)),
         GetPage(name: '/signup', page: () => SignUpScreen(),transition: Transition.rightToLeftWithFade,transitionDuration: Duration(milliseconds: 900)),
+        GetPage(name: '/otp', page: () => OtpScreen(),transition: Transition.rightToLeftWithFade,transitionDuration: Duration(milliseconds: 900)),
+        GetPage(name: '/dashboard', page: () => DashBoardScreen(),transition: Transition.rightToLeftWithFade,transitionDuration: Duration(milliseconds: 900)),
+        GetPage(name: '/home', page: () => HomeScreen(),transition: Transition.noTransition,transitionDuration: Duration(milliseconds: 900)),
+        GetPage(name: '/cart', page: () => CartScreen(),transition: Transition.noTransition,transitionDuration: Duration(milliseconds: 900)),
+        GetPage(name: '/fav', page: () => FavScreen(),transition: Transition.noTransition,transitionDuration: Duration(milliseconds: 900)),
+        GetPage(name: '/profile', page: () => ProfileScreen(),transition: Transition.noTransition,transitionDuration: Duration(milliseconds: 900)),
       ],
     );
   }
